@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Награда</title>
+  <meta charset="UTF-8">
+  <style>
+    body { background: black; color: lime; font-family: "Comic Sans MS"; text-align: center; }
+    a { color: cyan; font-weight: bold; }
+  </style>
+  <script>
+    let coins = parseInt(localStorage.getItem("coins") || 0);
+    function claimDisk() {
+      if(coins >= 1000){
+        alert("Диск разблокирован!");
+        window.location.href = "disks/disk001.ini";
+      } else {
+        alert("Недостаточно коинов! Собери больше.");
+        window.location.href = "page1.html";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>🎉 Награда</h1>
+  <p>Собери 1000 коинов, чтобы получить диск.</p>
+  <button onclick="claimDisk()">Забрать диск</button>
+</body>
+</html>

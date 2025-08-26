@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Загадка 2</title>
+  <meta charset="UTF-8">
+  <style>
+    body { background: black; color: lime; font-family: "Comic Sans MS"; text-align: center; }
+    a { color: cyan; font-weight: bold; }
+  </style>
+  <script>
+    let coins = parseInt(localStorage.getItem("coins") || 0);
+    function solvePuzzle() {
+      coins += 500;
+      localStorage.setItem("coins", coins);
+      alert("Ты заработал ещё 500 коинов! Всего: " + coins);
+      window.location.href = "prize.html";
+    }
+  </script>
+</head>
+<body>
+  <h1>Загадка 2</h1>
+  <p>Нажми кнопку, чтобы собрать коинов и открыть диск!</p>
+  <button onclick="solvePuzzle()">Собрать коинов</button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Загадка 1</title>
+  <meta charset="UTF-8">
+  <style>
+    body { background: black; color: lime; font-family: "Comic Sans MS"; text-align: center; }
+    a { color: cyan; font-weight: bold; }
+  </style>
+  <script>
+    let coins = parseInt(localStorage.getItem("coins") || 0);
+    function solvePuzzle() {
+      coins += 500;
+      localStorage.setItem("coins", coins);
+      alert("Ты заработал 500 коинов! Всего: " + coins);
+      window.location.href = "page2.html";
+    }
+  </script>
+</head>
+<body>
+  <h1>Загадка 1</h1>
+  <p>Реши загадку: 2 + 2 * 2 = ?</p>
+  <button onclick="solvePuzzle()">Ответ: 6</button>
+</body>
+</html>
