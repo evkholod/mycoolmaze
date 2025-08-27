@@ -4,21 +4,27 @@
   <title>Таинственный сайт 90-х</title>
   <meta charset="UTF-8">
   <style>
-    body { background: black; color: lime; font-family: "Comic Sans MS"; text-align: center; }
-    a { color: cyan; text-decoration: none; font-weight: bold; }
-    marquee { color: yellow; font-size: 18px; }
+    body { background:black; color:lime; font-family:"Comic Sans MS", cursive; text-align:center; }
+    a { color:cyan; text-decoration:none; font-weight:bold; }
+    .bar { margin:10px 0; }
+    img { image-rendering: pixelated; }
   </style>
   <script>
-    // проверка коинов
-    let coins = localStorage.getItem("coins") || 0;
-    function showCoins() { document.getElementById("wallet").innerText = coins; }
-    window.onload = showCoins;
+    function showCoins(){
+      const coins = localStorage.getItem("coins") || 0;
+      document.getElementById("wallet").innerText = coins;
+    }
+    window.addEventListener('load', showCoins);
   </script>
 </head>
 <body>
+  <div class="bar"><img src="img/under.gif" alt="Under Construction"></div>
   <marquee>🔥 Добро пожаловать в рогалик 90-х 🔥</marquee>
+
   <h1>Главная страница</h1>
-  <p>В твоём кошельке: <span id="wallet"></span> коинов</p>
-  <a href="page1.html">➡ Перейти к первой загадке</a>
+  <p>В твоём кошельке: <span id="wallet">0</span> коинов</p>
+  <p><a href="page1.html">➡ Перейти к первой загадке</a></p>
+
+  <div class="bar"><img src="img/skull.gif" alt="skull"></div>
 </body>
 </html>
