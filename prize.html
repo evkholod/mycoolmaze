@@ -1,14 +1,21 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Награда</title>
   <meta charset="UTF-8">
   <style>
-    body { background: black; color: lime; font-family: "Comic Sans MS"; text-align: center; }
-    a { color: cyan; font-weight: bold; }
+    body { background:black; color:lime; font-family:"Comic Sans MS", cursive; text-align:center; }
+    a { color:cyan; font-weight:bold; }
+    .bar { margin:10px 0; }
+    img { image-rendering: pixelated; }
   </style>
   <script>
-    let coins = parseInt(localStorage.getItem("coins") || 0);
-    function claimDisk() {
+    function onReady(){
+      const coins = parseInt(localStorage.getItem("coins") || 0);
+      document.getElementById("wallet").innerText = coins;
+    }
+    function claimDisk(){
+      const coins = parseInt(localStorage.getItem("coins") || 0);
       if(coins >= 1000){
         alert("Диск разблокирован!");
         window.location.href = "disks/disk001.ini";
@@ -17,11 +24,18 @@
         window.location.href = "page1.html";
       }
     }
+    window.addEventListener('load', onReady);
   </script>
 </head>
 <body>
+  <div class="bar"><img src="img/under.gif" alt="Under Construction"></div>
   <h1>🎉 Награда</h1>
+  <p>Кошелёк: <b id="wallet">0</b> коинов</p>
   <p>Собери 1000 коинов, чтобы получить диск.</p>
-  <button onclick="claimDisk()">Забрать диск</button>
+  <p><button onclick="claimDisk()">Забрать диск</button></p>
+
+  <div class="bar"><img src="img/skull.gif" alt="skull"></div>
+  <p><a href="index.html">⬅ На главную</a></p>
 </body>
 </html>
+
