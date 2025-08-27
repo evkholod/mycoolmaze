@@ -1,24 +1,45 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Загадка 1</title>
   <meta charset="UTF-8">
   <style>
-    body { background: black; color: lime; font-family: "Comic Sans MS"; text-align: center; }
-    a { color: cyan; font-weight: bold; }
+    body { background:black; color:lime; font-family:"Comic Sans MS", cursive; text-align:center; }
+    a { color:cyan; font-weight:bold; }
+    .bar { margin:10px 0; }
+    img { image-rendering: pixelated; }
   </style>
   <script>
-    let coins = parseInt(localStorage.getItem("coins") || 0);
-    function solvePuzzle() {
+    function onReady(){
+      const coins = parseInt(localStorage.getItem("coins") || 0);
+      document.getElementById("wallet").innerText = coins;
+      if(localStorage.getItem("p1_done")==="1"){
+        document.getElementById("btnSolve").disabled = true;
+        document.getElementById("hint").innerText = "Эта загадка уже решена.";
+      }
+    }
+    function solvePuzzle(){
+      if(localStorage.getItem("p1_done")==="1"){ alert("Уже решено."); return; }
+      let coins = parseInt(localStorage.getItem("coins") || 0);
       coins += 500;
       localStorage.setItem("coins", coins);
+      localStorage.setItem("p1_done","1");
       alert("Ты заработал 500 коинов! Всего: " + coins);
       window.location.href = "page2.html";
     }
+    window.addEventListener('load', onReady);
   </script>
 </head>
 <body>
+  <div class="bar"><img src="img/under.gif" alt="Under Construction"></div>
   <h1>Загадка 1</h1>
-  <p>Реши загадку: 2 + 2 * 2 = ?</p>
-  <button onclick="solvePuzzle()">Ответ: 6</button>
+  <p>Кошелёк: <b id="wallet">0</b> коинов</p>
+
+  <p>Реши: 2 + 2 * 2 = ?</p>
+  <p id="hint"></p>
+  <p><button id="btnSolve" onclick="solvePuzzle()">Ответ: 6</button></p>
+
+  <div class="bar"><img src="img/skull.gif" alt="skull"></div>
+  <p><a href="index.html">⬅ На главную</a></p>
 </body>
 </html>
